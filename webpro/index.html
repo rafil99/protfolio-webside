@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahir Rafil - Professional Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Card Layout */
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* Profile Image */
+        .profile-img-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Header Info */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+         h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .university-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            text-align: justify;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Section Titles */
+        h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-badge {
+            background: #334155;
+            color: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #475569;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* New Sections: Projects & Certificates */
+        .content-section {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .info-card {
+            background: #111827;
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .info-card:hover {
+            border-color: var(--primary);
+        }
+
+        .info-card h4 {
+            color: #f8fafc;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .info-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .info-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Details */
+        .contact-section {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            background: #111827;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .contact-value:hover {
+            color: #60a5fa;
+        }
+
+        /* Action Buttons */
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: #334155;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            .portfolio-card { padding: 20px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="portfolio-card">
+        
+        <!-- Profile Photo -->
+        <div class="profile-img-container">
+            <!-- Note: Save your photo in the same folder as index.html and name it 'profile.jpg' -->
+            <img src="profile.jpg" alt="Mahir Tajwar Rafil" class="profile-img" id="profileImage">
+        </div>
+
+        <!-- Name & University -->
+        <h1>Mahir Tajwar Rafil</h1>
+        <div class="university-badge">🎓 Student at IUBAT</div>
+        
+        <div class="info-card">
+        <h4>About Me</h4>
+        <p>My name is Mahir Tajwar Rafil. My hometown is Jamalpur but I currently live in Dhaka, Bangladesh.
+             I completed my BSc in Computer Science and Engineering at IUBAT International University of Business Agriculture and Technology.
+             I am a passionate developer and tech enthusiast building clean applications, websites, and cross-platform solutions.
+             I enjoy solving problems and continuously learning new technologies. Now I am learning Machine Learning & AI.</p>
+</div>
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <h3>Technical Skills</h3>
+            <div class="skills-grid" id="skillsContainer">
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">JAVASCRIPT</span>
+                <span class="skill-badge">C++</span>
+                <span class="skill-badge">C</span>
+                <span class="skill-badge">PYTHON</span>
+                <span class="skill-badge">DART</span>
+                <span class="skill-badge">PHP</span>
+                <span class="skill-badge">XML</span>
+            </div>
+        </div>
+
+        <!-- Projects Section (Newly Added) -->
+        <div class="content-section">
+            <h3>Projects</h3>
+            <div class="items-grid">
+                <div class="info-card">
+                    <h4>Accounts and Employee Management System</h4>
+                    <p>Developed a comprehensive Accounts and Employee Management System tailored 
+                        for Construction Services. The platform streamlines financial tracking 
+                        and workforce coordination, utilizing a robust SQL database architecture to
+                         ensure secure and efficient data management.</p>
+                    <a href="https://github.com/rafil7" target="_blank" class="info-link">View on GitHub &rarr;</a>
+                </div>
+                <div class="info-card">
+                    <h4>Blood Bank Management System</h4>
+                    <p>Designed and implemented a comprehensive Blood Bank Management System to automate and streamline donation and inventory processes.
+                         The project involved detailed proposal drafting, Entity-Relationship diagram design, and secure 
+                        database schema development utilizing PHP and SQL.</p>
+                    <a href="https://github.com/rafil7" target="_blank" class="info-link">View on GitHub &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificates Section (Newly Added) -->
+        <div class="content-section">
+            <h3>Certificates</h3>
+            <div class="items-grid">
+                <div class="info-card">
+                    <h4>Programming & Development</h4>
+                    <p>Mobile App Development
+using Kotlin & XML National Skills Development Authority (NSDA),Bangladesh
+Focused on developing native Android applications using Kotlin for app logic and XML for UI design.</p>
+            </div>
+        </div>
+
+        <div class="items-grid">
+                <div class="info-card">
+                    <h4>Programming & Development</h4>
+                    <p>competitive programming participation in my university's programming contests.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3>Get in Touch</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-label">Email Address</span>
+                    <a href="mailto:mahirrafil300@gmail.com" class="contact-value">mahirrafil300@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Phone Number</span>
+                    <a href="tel:01954406087" class="contact-value">01954406087</a>
+                </div>
+                <div class="contact-item" style="grid-column: span 2;">
+                    <span class="contact-label">GitHub</span>
+                    <a href="https://github.com/rafil7" target="_blank" class="contact-value">github.com/rafil7</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <a href="mailto:mahirrafil300@gmail.com" class="btn">📧 Send Message</a>
+            <button class="btn btn-outline" onclick="greetUser()">✨ Say Hello</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // JAVASCRIPT LOGIC
+    
+    // Fallback if the photo doesn't load immediately
+    document.getElementById('profileImage').onerror = function() {
+        this.src = 'https://via.placeholder.com/150?text=Mahir+Rafid';
+    };
+
+    // Interactive button function
+    function greetUser() {
+        alert("Hello! Thanks for visiting Mahir Tajwar Rafil's portfolio website.");
+    }
+</script>
+
+</body>
+</html>
